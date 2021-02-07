@@ -25,7 +25,12 @@ function create-node {
 # create-node z-0 us-central1-a n1-standard-1
 # create-node z-1 us-central1-a n1-standard-1
 # create-node z-2 us-central1-a n1-standard-1
-create-node b-0 us-central1-a n2-standard-2
-create-node b-1 us-central1-a n2-standard-2
-create-node b-2 us-central1-a n2-standard-2
+# create-node b-0 us-central1-a n2-standard-2
+# create-node b-1 us-central1-a n2-standard-2
+# create-node b-2 us-central1-a n2-standard-2
+# controlcenter
 # create-node c3 us-central1-a n2-standard-2
+# connect
+# create-node c-0 us-central1-a n1-standard-1
+# create-node c-1 us-central1-a n1-standard-1
+create-node sr us-central1-a n1-standard-1
