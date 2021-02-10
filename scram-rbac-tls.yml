@@ -5,6 +5,7 @@ all:
     ansible_user: benedikt
     ansible_become: true
     ansible_ssh_private_key_file: /home/benedikt/.ssh/google_compute_engine
+    deployment_strategy: parallel
 
     #### Setting Proxy Environment variables ####
     ## To set proxy env vars for the duration of playbook run, uncomment below block and set as necessary
@@ -27,7 +28,7 @@ all:
     ## Zookeeper can have Kerberos (GSSAPI) or Digest-MD5 SASL Authentication
     ## By default when sasl_protocol = kerberos, zookeeper will also use sasl kerberos. It can  be configured with:
     ## When a mechanism is selected, zookeeper.set.acl=true is added to kafka's server.properties. Note: property not added when using mTLS, set manually with Custom Properties
-    # zookeeper_sasl_protocol: <none/kerberos/digest>
+    zookeeper_sasl_protocol: digest
 
     #### Kerberos Configuration ####
     ## Applicable when sasl_protocol is kerberos
@@ -69,7 +70,7 @@ all:
     ## Zookeeper can also have TLS Encryption and mTLS Authentication
     ## For backwards compatibility both will be turned off by default, even if ssl_enabled is set to true
     ## To enable TLS encryption and mTLS authentication uncomment these respectively
-    # zookeeper_ssl_enabled: true
+    zookeeper_ssl_enabled: true
     # zookeeper_ssl_mutual_auth_enabled: true
 
     #### Certificate Regeneration ####
