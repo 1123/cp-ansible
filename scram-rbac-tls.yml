@@ -89,7 +89,7 @@ all:
     # jolokia_jar_url: http://<inteneral-server>/jolokia-jvm-1.6.2-agent.jar
     ## JMX Exporter is disabled by default. When enabled, JMX Exporter jar will be pulled from the Internet and enabled on the broker and zookeeper *only*.
     ## To enable, uncomment this line:
-    # jmxexporter_enabled: true
+    jmxexporter_enabled: true
     ## To update that jar download set this var
     # jmxexporter_jar_url: http://<internal-server>/jmx_prometheus_javaagent-0.12.0.jar
 
@@ -377,8 +377,8 @@ ksql:
   #     - source_path: /path/to/file.txt
   #       destination_path: /tmp/file.txt
   hosts:
-    benedikt-ansible-k-0:
-    benedikt-ansible-k-1:
+    benedikt-ansible-c-0:
+    benedikt-ansible-c-1:
       ## For kerberos sasl protocol, EACH host will need these two variables:
       # ksql_kerberos_keytab_path: <The path on ansible host to keytab file, eg. /tmp/keytabs/ksql-ip-172-31-37-15.us-east-2.compute.internal
       # ksql_kerberos_principal: The principal configured in kdc server ex: ksql/ip-172-31-37-15.us-east-2.compute.internal@REALM.EXAMPLE.COM>

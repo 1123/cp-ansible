@@ -5,6 +5,7 @@ set -e -u
 USER=benedikt
 NODE=benedikt-ansible-c-0
 ZONE=us-central1-a
+BOOTSTRAP_SERVERS=benedikt-ansible-b-0:9091,benedikt-ansible-b-1:9091,benedikt-ansible-b-2:9091
 
 echo "Copying generated truststore from ${NODE}"
 gcloud compute ssh ${USER}@${NODE} \
@@ -24,6 +25,6 @@ while true; do
   echo $(date)
   sleep 1 
 done | kafka-console-producer \
-  --bootstrap-server benedikt-ansible-b-0:9091 \
+  --bootstrap-server ${BOOTSTRAP_SERVERS}\
   --producer.config client-ssl.properties \
   --topic test
