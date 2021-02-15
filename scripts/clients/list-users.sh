@@ -1,3 +1,3 @@
 kafka-configs --zookeeper \
-  benedikt-ansible-z-0:2181 \
+  vm1:2181 \
   --describe --entity-type users

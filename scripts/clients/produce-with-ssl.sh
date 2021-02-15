@@ -3,9 +3,9 @@
 set -e -u
 
 USER=benedikt
-NODE=benedikt-ansible-c-0
+NODE=vm5
 ZONE=us-central1-a
-BOOTSTRAP_SERVERS=benedikt-ansible-b-0:9091,benedikt-ansible-b-1:9091,benedikt-ansible-b-2:9091
+BOOTSTRAP_SERVERS=vm1:9091,vm2:9091,vm3:9091
 
 echo "Copying generated truststore from ${NODE}"
 gcloud compute ssh ${USER}@${NODE} \

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e -u 
-BOOTSTRAP_SERVERS=benedikt-ansible-b-0:9091,benedikt-ansible-b-1:9091,benedikt-ansible-b-1:9091
+BOOTSTRAP_SERVERS=vm1:9091,vm2:9091,vm2:9091
 
 kafka-consumer-perf-test \
   --bootstrap-server $BOOTSTRAP_SERVERS \

@@ -24,18 +24,18 @@ scrape_configs:
   - job_name: 'kafka'
     static_configs:
     - targets:
-      - 'benedikt-ansible-b-0:8080'
-      - 'benedikt-ansible-b-1:8080'
-      - 'benedikt-ansible-b-2:8080'
+      - 'vm1:8080'
+      - 'vm2:8080'
+      - 'vm3:8080'
       labels:
         env: 'dev'
 
   - job_name: 'zookeeper'
     static_configs:
     - targets:
-      - 'benedikt-ansible-z-0:8097'
-      - 'benedikt-ansible-z-1:8097'
-      - 'benedikt-ansible-z-2:8097'
+      - 'vm1:8097'
+      - 'vm2:8097'
+      - 'vm3:8097'
       labels:
         env: 'dev'
 
