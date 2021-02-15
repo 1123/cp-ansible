@@ -24,44 +24,20 @@ scrape_configs:
   - job_name: 'kafka'
     static_configs:
     - targets:
-      - 'kafka-1:1234'
-      - 'kafka-2:1234'
-      - 'kafka-3:1234'
+      - 'benedikt-ansible-b-0:8080'
+      - 'benedikt-ansible-b-1:8080'
+      - 'benedikt-ansible-b-2:8080'
       labels:
         env: 'dev'
 
   - job_name: 'zookeeper'
     static_configs:
     - targets:
-      - 'zookeeper-1:1234'
-      - 'zookeeper-2:1234'
-      - 'zookeeper-3:1234'
+      - 'benedikt-ansible-z-0:8097'
+      - 'benedikt-ansible-z-1:8097'
+      - 'benedikt-ansible-z-2:8097'
       labels:
         env: 'dev'
-
-  - job_name: 'producer'
-    static_configs:
-      - targets:
-          - 'producer:1234'
-        labels:
-          env: 'dev'
-
-  - job_name: 'consumer'
-    static_configs:
-      - targets:
-          - "consumer:1234"
-          - "consumer-1:1234"
-          - "consumer-2:1234"
-          - "consumer-3:1234"
-        labels:
-          env: 'dev'
-
-  - job_name: 'streams'
-    static_configs:
-      - targets:
-          - "streams:1234"
-        labels:
-          env: 'dev'
 
   - job_name: 'connect'
     static_configs:
