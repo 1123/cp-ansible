@@ -75,89 +75,13 @@
       },
       "tableColumn": "",
       "targets": [{
-        "expr": "count(zookeeper_quorumsize)",
+        "expr": "count(zookeeper_status_quorumsize)",
         "refId": "A"
       }],
       "thresholds": "2,3",
       "timeFrom": null,
       "timeShift": null,
       "title": "Zookeeper nodes online",
-      "type": "singlestat",
-      "valueFontSize": "200%",
-      "valueMaps": [{
-        "op": "=",
-        "text": "N/A",
-        "value": "null"
-      }],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": true,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "description": "Number of Alive Connections",
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 4,
-        "y": 0
-      },
-      "id": 4,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [{
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "options": {},
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [{
-        "from": "null",
-        "text": "N/A",
-        "to": "null"
-      }],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false,
-        "ymax": null,
-        "ymin": null
-      },
-      "tableColumn": "",
-      "targets": [{
-        "expr": "sum(zookeeper_numaliveconnections)",
-        "refId": "A"
-      }],
-      "thresholds": "60,120",
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Alive Connections",
       "type": "singlestat",
       "valueFontSize": "200%",
       "valueMaps": [{
@@ -239,8 +163,8 @@
       "stack": false,
       "steppedLine": false,
       "targets": [{
-        "expr": "zookeeper_outstandingrequests",
-        "legendFormat": "{{instance}}",
+        "expr": "rate(zookeeper_connections_outstandingrequests[5m])",
+        "legendFormat": "{{instance}}-{{client_address}}-{{connection_id}}",
         "refId": "A"
       }],
       "thresholds": [{
@@ -730,8 +654,8 @@
       "stack": false,
       "steppedLine": false,
       "targets": [{
-        "expr": "zookeeper_minrequestlatency",
-        "legendFormat": "{{instance}}",
+        "expr": "rate(zookeeper_connections_minlatency[5m])",
+        "legendFormat": "{{instance}}-{{client_address}}-{{connection_id}}",
         "refId": "A"
       }],
       "thresholds": [],
@@ -846,8 +770,8 @@
       "stack": false,
       "steppedLine": false,
       "targets": [{
-        "expr": "zookeeper_avgrequestlatency",
-        "legendFormat": "{{instance}}",
+        "expr": "rate(zookeeper_connections_avglatency[5m])",
+        "legendFormat": "{{instance}}-{{client_address}}-{{connection_id}}",
         "refId": "A"
       }],
       "thresholds": [{
@@ -968,8 +892,8 @@
       "stack": false,
       "steppedLine": false,
       "targets": [{
-        "expr": "zookeeper_maxrequestlatency",
-        "legendFormat": "{{instance}}",
+        "expr": "rate(zookeeper_connections_maxlatency[5m])",
+        "legendFormat": "{{instance}}-{{client_address}}-{{connection_id}}",
         "refId": "A"
       }],
       "thresholds": [{
