@@ -33,16 +33,26 @@ scrape_configs:
   - job_name: 'zookeeper'
     static_configs:
     - targets:
-      - 'vm1:8097'
-      - 'vm2:8097'
-      - 'vm3:8097'
+      - 'vm1:8079'
+      - 'vm2:8079'
+      - 'vm3:8079'
       labels:
         env: 'dev'
 
   - job_name: 'connect'
     static_configs:
       - targets:
-          - 'connect:1234'
+          - 'vm5:8077'
+          - 'vm6:8077'
+        labels:
+          env: 'dev'
+          cluster: 'cluster1'
+
+  - job_name: 'ksql'
+    static_configs:
+      - targets:
+          - 'vm5:8076'
+          - 'vm6:8076'
         labels:
           env: 'dev'
           cluster: 'cluster1'
