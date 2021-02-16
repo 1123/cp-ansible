@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -u -e 
+set -e -u
 
 USER=benedikt
 NODE=vm5
@@ -16,13 +16,4 @@ gcloud compute ssh ${USER}@${NODE} \
   --command "sudo chmod a+r /tmp/kafka_connect.truststore.jks"
 gcloud compute scp \
   --zone ${ZONE} \
-  ${USER}@${NODE}:/tmp/kafka_connect.truststore.jks .
-
-export KSQL_LOG4J_OPTS="-Dlog4j.configuration=file:log4j-file.properties"
-
-ksql \
-  --user superUser \
-  --password superUser \
-  --config-file ksql-cli.properties \
-  https://vm5:8088
-
+  ${USER}@${NODE}:/tmp/kafka_connect.truststore.jks ./truststore.jks
