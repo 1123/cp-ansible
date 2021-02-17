@@ -1,2 +1,5 @@
-env
+truststore.jks
+truststore.p12
+truststore.pem
+env/cloud.env
 ngdbc-2.7.11.jar

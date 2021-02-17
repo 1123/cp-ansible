@@ -1,0 +1,28 @@
+{
+  "name": "hana-sink-test",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "key.converter.schema.registry.ssl.keystore.location": "/var/ssl/private/kafka_connect.keystore.jks",
+    "value.converter.schema.registry.ssl.key.password": "confluentkeystorestorepass",
+    "connection.password": "Sap-hana-s3cret",
+    "value.converter.schema.registry.ssl.keystore.password": "confluentkeystorestorepass",
+    "value.converter.schema.registry.ssl.truststore.password": "confluenttruststorepass",
+    "key.converter.schema.registry.ssl.truststore.location": "/var/ssl/private/kafka_connect.truststore.jks",
+    "value.converter.schema.registry.ssl.keystore.location": "/var/ssl/private/kafka_connect.keystore.jks",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "key.converter.schema.registry.ssl.keystore.password": "confluentkeystorestorepass",
+    "key.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter.schema.registry.ssl.truststore.location": "/var/ssl/private/kafka_connect.truststore.jks",
+    "topics": "test-avro",
+    "key.converter.schema.registry.ssl.truststore.password": "confluenttruststorepass",
+    "value.converter.schema.registry.url": "https://vm7:8081",
+    "key.converter.schema.registry.ssl.key.password": "confluentkeystorestorepass",
+    "connection.user": "SYSTEM",
+    "name": "hana-sink-test",
+    "principal.service.name": "superUser",
+    "connection.url": "jdbc:sap://benedikt-cp-demo-jmx:39017/?encrypt=true&validateCertificate=false",
+    "principal.service.password": "superUser",
+    "key.converter.schema.registry.url": "https://vm7:8081",
+    "auto.create" : true
+  }
+}
