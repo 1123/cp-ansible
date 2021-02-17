@@ -409,7 +409,7 @@ ksql:
 
 kafka_connect:
   ## To set variables on all kafka_connect hosts, use the vars block here
-  # vars:
+  vars:
   #   ## To configure Connect to run as a custom user, uncomment below
   #   kafka_connect_user: custom-user
   #   kafka_connect_group: custom-group
@@ -426,10 +426,12 @@ kafka_connect:
   #   - /usr/share/java
   #   - /my/connectors/dir
   #
-  #   ## Installing Connectors From Confluent Hub
-  #   kafka_connect_confluent_hub_plugins:
-  #   - jcustenborder/kafka-connect-spooldir:2.0.43
-  #
+    ## Installing Connectors From Confluent Hub
+    kafka_connect_confluent_hub_plugins:
+    - jcustenborder/kafka-connect-spooldir:2.0.43
+    - confluentinc/kafka-connect-jdbc:latest
+    - debezium/debezium-connector-mysql:1.3.1
+  
   #   ## Installing Connectors from Archive files local to Ansible host
   #   kafka_connect_plugins:
   #   - local/path/to/connect_archive.zip
