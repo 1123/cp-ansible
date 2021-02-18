@@ -1,1 +1,1 @@
-curl --cacert truststore.pem https://schemaregistryUser:schemaregistryUser@vm7:8081/subjects
+curl --cacert truststore.pem https://superUser:superUser@vm7:8081/subjects
