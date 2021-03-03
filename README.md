@@ -1,3 +1,5 @@
+## Modifications from the forked repository
+
 This fork of the public cp-ansible repository inlcudes the following modifications: 
 
 * scripts to bring up virtual machines for testing on GCP
@@ -7,6 +9,13 @@ This fork of the public cp-ansible repository inlcudes the following modificatio
 * A demo folder for exporting data to SAP HANA using the JDBC Sink connector in the hana subdirectory. A SAP Hana express container is brought up to showcase this. 
 * A demo folder for importing data from DB2 via the Debezium CDC DB2 source connector in the db2 subdirectory. A DB2 docker container from the debezium project is run for the purpose of this demo. 
 * Post installation checks for all major platform components (Kafka, Connect, KSQL, Rest Proxy) in the checks subdirectory. 
+
+## Running the adjusted deployment
+
+* Edit scram-rbac.yml to adjust ssh configuration at the top, and the virtual machine names (vm1, ..., vm7). 
+* Run the openlap container on some host (can be the ansible installation host)
+* adjust the URL to the openldap container within scram-rbac.yml to point to the host that is running the openldap docker image. 
+* run the ansible scripts as documented on the Confluent Website -- see the link below. 
 
 # CP-Ansible
 
