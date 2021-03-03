@@ -27,6 +27,6 @@ create-node vm1 us-central1-a n2-standard-4 200GB
 create-node vm2 us-central1-a n2-standard-4 200GB
 create-node vm3 us-central1-a n2-standard-4 200GB
 create-node vm4 us-central1-a n2-standard-4 200GB
-create-node vm5 us-central1-a n2-standard-2 50GB
-create-node vm6 us-central1-a n2-standard-2 50GB
-create-node vm7 us-central1-a n2-standard-2 50GB
+create-node vm5 us-central1-a n2-standard-4 200GB
+create-node vm6 us-central1-a n2-standard-4 200GB
+create-node vm7 us-central1-a n2-standard-4 200GB
