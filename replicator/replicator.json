@@ -1,0 +1,13 @@
+{
+  "name":"replicator",
+  "config":{
+    "connector.class":"io.confluent.connect.replicator.ReplicatorSourceConnector",
+    "tasks.max":4,
+    "key.converter":"io.confluent.connect.replicator.util.ByteArrayConverter",
+    "value.converter":"io.confluent.connect.replicator.util.ByteArrayConverter",
+    "src.kafka.bootstrap.servers":"vm1:9092,vm2:9092,vm3:9092",
+    "topic.whitelist":"test-topic",
+    "topic.rename.format":"${topic}.replica",
+    "confluent.license":"XYZ"
+  }
+}

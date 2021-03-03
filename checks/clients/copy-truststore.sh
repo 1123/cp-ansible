@@ -3,7 +3,7 @@
 set -e -u
 
 USER=benedikt
-NODE=vm5
+NODE=vm1
 ZONE=us-central1-a
 BOOTSTRAP_SERVERS=vm1:9091,vm2:9091,vm3:9091
 

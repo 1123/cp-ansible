@@ -7,3 +7,5 @@ error_files/
 *base-config.yml
 roles/confluent.test/molecule/*/*.tar.gz
 .pre-commit-config.yaml
+
+*.jks
