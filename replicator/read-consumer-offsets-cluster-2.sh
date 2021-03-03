@@ -14,7 +14,6 @@ kafka-console-consumer \
   --property key.deserializer=io.confluent.connect.replicator.offsets.GroupTopicPartitionDeserializer \
   --property value.deserializer=io.confluent.connect.replicator.offsets.TimestampAndDeltaDeserializer \
   --formatter "kafka.coordinator.group.GroupMetadataManager\$OffsetsMessageFormatter" \
-  --from-beginning | \
-grep -v confluent-audit-log-events | grep -v controlcenter
+  --from-beginning 
 
 
