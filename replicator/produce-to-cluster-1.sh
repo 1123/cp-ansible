@@ -13,6 +13,6 @@ while true; do
   sleep 1 
 done | kafka-console-producer \
   --bootstrap-server ${BOOTSTRAP_SERVERS} \
-  --producer.config client-ssl.properties \
+  --producer.config producer-ssl.properties \
   --topic test
 
