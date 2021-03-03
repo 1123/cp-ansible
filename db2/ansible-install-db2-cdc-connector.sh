@@ -1,0 +1,6 @@
+ansible -i ../scram-rbac-tls.yml kafka_connect -a "sudo -u cp-kafka-connect curl -L 'https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&g=io.debezium&a=debezium-connector-db2&v=LATEST&c=plugin&e=tar.gz' -o /usr/share/java/debezium-connector-db2.tar.gz"
+ansible -i ../scram-rbac-tls.yml kafka_connect -a "sudo -u cp-kafka-connect tar -xvzf /usr/share/java/debezium-connector-db2.tar.gz -C /usr/share/java"
+ansible -i ../scram-rbac-tls.yml kafka_connect -a "sudo -u cp-kafka-connect rm /usr/share/java/debezium-connector-db2.tar.gz" 
+ansible -i ../scram-rbac-tls.yml kafka_connect -a "sudo -u cp-kafka-connect curl https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.5.0.0/jcc-11.5.0.0.jar --output /usr/share/java/debezium-connector-db2/jcc-11.5.0.0.jar"
+ansible -i ../scram-rbac-tls.yml kafka_connect -a "sudo yum install libaio"
+ansible -i ../scram-rbac-tls.yml kafka_connect -a "sudo systemctl restart confluent-kafka-connect.service"

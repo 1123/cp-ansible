@@ -1,0 +1,1 @@
+../copy-truststore-and-convert-to-pem-format.sh
