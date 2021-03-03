@@ -1,3 +1,3 @@
 ansible \
-  -i scram-rbac-tls.yml control_center \
+  -i cluster-1.yml control_center \
   -a "sudo systemctl restart confluent-control-center.service"

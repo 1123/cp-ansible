@@ -1,3 +1,3 @@
 ansible \
-  -i scram-rbac-tls.yml control_center \
+luster-1.yml/
   -a "sudo systemctl status confluent-control-center.service"

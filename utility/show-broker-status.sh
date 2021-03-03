@@ -1,1 +1,1 @@
-ansible -i scram-rbac-tls.yml kafka_broker -a "sudo systemctl status confluent-server.service"
+luster-1.yml/

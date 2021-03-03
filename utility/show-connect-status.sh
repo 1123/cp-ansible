@@ -1,3 +1,3 @@
 ansible \
-  -i scram-rbac-tls.yml kafka_connect \
+luster-1.yml/
   -a "sudo systemctl status confluent-kafka-connect.service"

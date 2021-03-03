@@ -5,6 +5,7 @@ all:
     ansible_user: benedikt
     ansible_become: true
     ansible_ssh_private_key_file: /home/benedikt/.ssh/google_compute_engine
+    debian_java_package_name: openjdk-11-jdk
 
     #### Setting Proxy Environment variables ####
     ## To set proxy env vars for the duration of playbook run, uncomment below block and set as necessary
@@ -250,16 +251,16 @@ zookeeper:
   #     - source_path: /path/to/file.txt
   #       destination_path: /tmp/file.txt
   hosts:
-    vm4:
+    vm1:
       ## By default the first host will get zookeeper id=1, second gets id=2. Set zookeeper_id to customize
       # zookeeper_id: 2
 
       ## For kerberos sasl protocol, EACH host will need these two variables:
       # zookeeper_kerberos_keytab_path: <The path on ansible host to keytab file, eg. /tmp/keytabs/zookeeper-ip-172-31-34-246.us-east-2.compute.internal.keytab>
       # zookeeper_kerberos_principal: <The principal configured in kdc server, eg. zookeeper/ip-172-31-34-246.us-east-2.compute.internal@REALM.EXAMPLE.COM>
-    vm5:
+    vm2:
       # zookeeper_id: 3
-    vm6:
+    vm3:
       # zookeeper_id: 1
 
 kafka_broker:
@@ -306,7 +307,7 @@ kafka_broker:
   #     - source_path: /path/to/file.txt
   #       destination_path: /tmp/file.txt
   hosts:
-    vm4:
+    vm1:
       ## By default the first host will get broker id=1, second gets id=2. Set broker_id to customize
       # broker_id: 3
 
@@ -319,12 +320,12 @@ kafka_broker:
       ## For kerberos sasl protocol, EACH host will need these two variables:
       # kafka_broker_kerberos_keytab_path: <The path on ansible host to keytab file, eg. /tmp/keytabs/ip-172-31-34-246.us-east-2.compute.internal>
       # kafka_broker_kerberos_principal: <The principal configured in kdc server, eg. kafka/ip-172-31-34-246.us-east-2.compute.internal@REALM.EXAMPLE.COM>
-    vm5:
+    vm2:
       # broker_id: 2
       # kafka_broker_custom_properties:
       #   broker.rack: us-east-1a
       #   replica.selector.class: org.apache.kafka.common.replica.RackAwareReplicaSelector
-    vm6:
+    vm3:
       # broker_id: 1
       # kafka_broker_custom_properties:
       #   broker.rack: us-east-1b
@@ -332,7 +333,7 @@ kafka_broker:
 
 schema_registry:
   ## To set variables on all schema_registry hosts, use the vars block here
-  vars:
+  # vars:
   #   ## To configure Schema Registry to run as a custom user, uncomment below
   #   schema_registry_user: custom-user
   #   schema_registry_group: custom-group
@@ -342,7 +343,7 @@ schema_registry:
   #     - source_path: /path/to/file.txt
   #       destination_path: /tmp/file.txt
   hosts:
-    vm4:
+    vm1:
       ## For kerberos sasl protocol, EACH host will need these two variables:
       # schema_registry_kerberos_keytab_path: <The path on ansible host to keytab file, eg. /tmp/keytabs/schemaregistry-ip-172-31-34-246.us-east-2.compute.internal
       # schema_registry_kerberos_principal: The principal configured in kdc server ex: schemaregistry/ip-172-31-34-246.us-east-2.compute.internal@REALM.EXAMPLE.COM>
@@ -386,9 +387,9 @@ kafka_connect:
   #   # To disable the feature:
   #   kafka_connect_secret_registry_enabled: false
   hosts:
-    vm4:
-    vm5:
-    vm6:
+    vm1:
+    vm2:
+    vm3:
       ## For kerberos sasl protocol, EACH host will need these two variables:
       # kafka_connect_kerberos_keytab_path: <The path on ansible host to keytab file, eg. /tmp/keytabs/connect-ip-172-31-34-246.us-east-2.compute.internal
       # kafka_connect_kerberos_principal: The principal configured in kdc server ex: connect/ip-172-31-34-246.us-east-2.compute.internal@REALM.EXAMPLE.COM>
@@ -415,3 +416,30 @@ kafka_connect:
 #   children:
 #     syslog:
 #     elastic:
+
+control_center:
+  ## To set variables on all control_center hosts, use the vars block here
+  # vars:
+  #   ## To configure Control Center to run as a custom user, uncomment below
+  #   control_center_user: custom-user
+  #   control_center_group: custom-group
+  #
+  #   ## To copy files to control_center hosts, set this list below
+  #   control_center_copy_files:
+  #     - source_path: /path/to/file.txt
+  #       destination_path: /tmp/file.txt
+  hosts:
+    benedikt-cp-demo-jmx:
+      ## For kerberos sasl protocol, EACH host will need these two variables:
+      # control_center_kerberos_keytab_path: <The path on ansible host to keytab file, eg. /tmp/keytabs/controlcenter-ip-172-31-37-15.us-east-2.compute.internal
+      # control_center_kerberos_principal: The principal configured in kdc server ex: controlcenter/ip-172-31-37-15.us-east-2.compute.internal@REALM.EXAMPLE.COM>
+
+  # ## If you are configuring multiple connect or ksql clusters, the below variables are mandatory.
+  # # The group names must match the group names as they are in your inventory
+  # vars:
+  #   ksql_cluster_ansible_group_names:
+  #     - ksql1
+  #     - ksql2
+  #   kafka_connect_cluster_ansible_group_names:
+  #     - syslog
+  #     - elastic
