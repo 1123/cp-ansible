@@ -231,6 +231,7 @@ all:
       leader.eligibility: false
       kafkastore.bootstrap.servers: vm1:9092,vm2:9092,vm3:9092
       kafkastore.sasl.jaas.config: org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required username="schemaregistryUser" password="schemaregistryUser" metadataServerUrls="https://vm1:8090,https://vm2:8090,https://vm3:8090";
+      confluent.metadata.bootstrap.server.urls: https://vm1:8090,https://vm2:8090,https://vm3:8090
     #   key: val
     # control_center_custom_properties:
     #   key: val

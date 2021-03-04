@@ -3,7 +3,7 @@
 set -u -e
 
 curl -X POST \
-  --cacert truststore.pem \
+  --cacert ../truststore.pem \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d @replicator.json \
