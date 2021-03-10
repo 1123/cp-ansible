@@ -43,7 +43,6 @@
     "offset.timestamps.commit": "false",
     "producer.override.sasl.jaas.config": "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required username=\"superUser\" password=\"superUser\" metadataServerUrls=\"https://vm4:8090,https://vm5:8090,https://vm6:8090\";",
     "consumer.override.sasl.jaas.config": "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required username=\"superUser\" password=\"superUser\" metadataServerUrls=\"https://vm4:8090,https://vm5:8090,https://vm6:8090\";",
-    "tasks.max": "1",
     "provenance.header.enable": "true"
   }
 }
