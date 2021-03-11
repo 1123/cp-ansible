@@ -10,5 +10,5 @@ export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:./tools-log4j.properties"
 echo "Consuming data from replicated topic"
 kafka-console-consumer \
   --bootstrap-server ${BOOTSTRAP_SERVERS}\
-  --consumer.config consumer-ssl.properties \
-  --topic test | cut -c 10
+  --consumer.config consumer-with-interceptor.properties \
+  --topic test 

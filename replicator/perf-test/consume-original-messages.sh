@@ -11,5 +11,4 @@ echo "Consuming data from topic test"
 kafka-console-consumer \
   --bootstrap-server ${BOOTSTRAP_SERVERS}\
   --consumer.config consumer-with-interceptor.properties \
-  --topic test \
-  --from-beginning 
+  --topic test 
